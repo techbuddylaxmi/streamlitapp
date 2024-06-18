@@ -1,0 +1,13 @@
+{
+  "name": "stream-service",
+  "version": "1.0.0",
+  "description": "CAP service",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@sap/cds": "^4",
+    "express": "^4.17.1"
+  }
+}

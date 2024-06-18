@@ -1,0 +1,31 @@
+ID: stream
+_schema-version: '3.1'
+version: 0.0.1
+
+modules:
+  - name: stream-service
+    type: nodejs
+    path: srv
+    parameters:
+      memory: 128M
+    requires:
+      - name: stream-db
+    build-parameters:
+      buildpacks:
+        - nodejs_buildpack
+
+  - name: streamlit-app
+    type: python
+    path: srv/python-app
+    parameters:
+      memory: 1G
+      disk-quota: 2G
+    build-parameters:
+      buildpacks:
+        - python_buildpack
+
+resources:
+  - name: stream-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service-plan: hdi-shared
